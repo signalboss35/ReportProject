@@ -3,81 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายงานสรุปโครงการ ThaiWater Platform (TWP)</title>
+    <title>รายงานสรุปโครงการ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: #F8F9FA;
-        }
-        .text-primary-dark {
-            color: #212529;
-        }
-        .bg-card {
-            background-color: #FFFFFF;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        .bg-card-2 {
-            background-color: #F8F9FA;
-        }
-        .border-highlight {
-            border-left: 4px solid #0D6EFD;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 350px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-        .flow-arrow {
-            color: #0D6EFD;
-            font-size: 2rem;
-            text-align: center;
-        }
-        details > summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease;
-        }
-        details > summary::-webkit-details-marker {
-            display: none;
-        }
-        details[open] > summary {
-            background-color: #E9ECEF;
-        }
-        details[open] > summary::after {
-            content: "▲";
-        }
-        details:not([open]) > summary::after {
-            content: "▼";
-        }
-        .summary-arrow::after {
-            float: right;
-            margin-left: 10px;
-        }
-        details[open] > .content {
-            padding: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-primary-dark">
     <div class="container mx-auto p-4 md:p-8">
         <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary-dark">รายงานสรุปความคืบหน้าโครงการ ThaiWater Platform (TWP)</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-primary-dark">รายงานสรุปความคืบหน้าโครงการ</h1>
             <p class="text-lg text-gray-500 mt-2">อัปเดตสถานะ ณ วันที่ 8 กันยายน 2568</p>
         </header>
 
@@ -145,128 +82,92 @@
             </div>
 
             <div class="md:col-span-2 lg:col-span-3 bg-card rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-bold text-center mb-6 text-primary-dark">ประเด็นและรายละเอียดการแก้ไข</h2>
+                <h2 class="text-2xl font-bold text-center mb-6 text-primary-dark">ภาพรวมประเด็นการแก้ไข</h2>
+                <p class="text-gray-600 mb-4 text-center">ประเมินสถานะการแก้ไขปัญหาในแต่ละหมวดหมู่</p>
+                <div class="chart-container h-80">
+                    <canvas id="issueRadarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-3 bg-card rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-center mb-6 text-primary-dark">รายละเอียดประเด็นการแก้ไข</h2>
                 <div class="space-y-4">
                     <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
                         <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">การทดสอบความเท่ากันของข้อมูลที่หน้าแสดงผลเว็บไซต์</span>
+                            <span class="font-bold">หมวดหมู่: ระบบและ API</span>
                             <span class="summary-arrow"></span>
                         </summary>
                         <div class="text-gray-800 mt-2 content">
-                            คำตอบ: ในทำตัวอย่างหน้า ฝน และ อ่างเก็บน้ำ นำ script และ report มานำเสนอก่อน
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>
+                                    <span class="font-semibold">ระบบแจ้งเตือน Server เข้า Group Telegram:</span> ให้เข้ากลุ่ม Telegram และสอบถาม config
+                                </li>
+                                <li>
+                                    <span class="font-semibold">ระบบ Monitor จาก Grafana และ TWP:</span> ปิดการแจ้งเตือนไว้ แจ้งบริษัทให้เปิดการแจ้งเตือนได้เลย
+                                </li>
+                                <li>
+                                    <span class="font-semibold">อัพเดตการแก้ไข api mobile app:</span> กำลังดำเนินการแก้ไข API ที่เกี่ยวข้องตามรายการที่แจ้ง
+                                </li>
+                                <li>
+                                    <span class="font-semibold">email สรุปรายการเหตุการณ์:</span> รายงานเหตุการณ์ปิดการแจ้งเตือนไว้ สั่งให้เปิดแล้ว
+                                </li>
+                            </ul>
                         </div>
                     </details>
                     <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
                         <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">ระบบแจ้งเตือน Server เข้า Group Telegram</span>
+                            <span class="font-bold">หมวดหมู่: Data และ Pipeline</span>
                             <span class="summary-arrow"></span>
                         </summary>
                         <div class="text-gray-800 mt-2 content">
-                            คำตอบ: ให้เข้ากลุ่ม Telegram https://t.me/+SlVbqy-7Y0wyZTI9 และสอบถาม config
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>
+                                    <span class="font-semibold">แผนการ Optimize ระบบนำเข้าข้อมูล:</span> ทำการ Comment Log ไม่จำเป็นออก เหลือ Log ที่สำคัญไว้
+                                </li>
+                                <li>
+                                    <span class="font-semibold">การตั้งค่า QC Rule ที่ Migrate:</span> เกิดจาก config dataset ไม่ถูก และไม่ได้ map QC กำลังทยอยตั้งค่าให้ถูกต้อง
+                                </li>
+                                <li>
+                                    <span class="font-semibold">ข้อมูลประวัติการให้บริการข้อมูล:</span>
+                                    <ul>
+                                        <li>1. User ที่ถูก soft delete ไปแล้ว ต้องแสดงผลชื่อผู้ขอได้</li>
+                                        <li>2. ผู้อนุมัติที่ TW30 ให้บันทึกเป็น superadmin ไว้ก่อน</li>
+                                        <li>3. การเรียกใช้ API ยังไม่ถูกต้อง ให้ดูที่ activity - access_log</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <span class="font-semibold">รายการ pipeline 8 ตัว ที่ยังไม่แล้วเสร็จ:</span> ดำเนินการเสร็จไป 3 เหลือ 5 รายการ ตัวไหนเสร็จให้นัดนำเสนอ Online ทันที
+                                </li>
+                                <li>
+                                    <span class="font-semibold">แผน migrate file:</span>
+                                    <ul>
+                                        <li>1. ปี 2025 กำลังทำอยู่ ยังไม่สามารถประเมินวันที่แล้วเสร็จได้</li>
+                                        <li>2. แผนเดิมข้อมูลจะ Migrate ถึงปี 2024 วันที่ 11 อาจจะล่าช้า 1-2 วัน</li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </details>
                     <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
                         <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">แผนการ Optimize ระบบนำเข้าข้อมูล</span>
+                            <span class="font-bold">หมวดหมู่: หน้าเว็บและอื่นๆ</span>
                             <span class="summary-arrow"></span>
                         </summary>
                         <div class="text-gray-800 mt-2 content">
-                            คำตอบ: ทำการ Comment Log ไม่จำเป็นออก เหลือ Log ที่สำคัญไว้
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">ระบบ Monitor จาก Grafana และ TWP</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: ระบบที่การเชื่อมโยงมาจาก Gafana จะเป็น รายงานเหตุการณ์ ปัจจุบันตั้งค่าการแจ้งเตือนถูกปิดไว้อยู่ แจ้งบริษัทให้เปิดการแจ้งเตือนได้เลย
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">การตั้งค่า QC Rule ที่ Migrate มาแล้ว</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: จากการตรวจสอบ เกิดจาก config dataset ไม่ถูก และไม่ได้ map QC ที่ Migrate แจ้งทีม DE กำลังทยอยตั้งค่าให้ถูกต้อง
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">ข้อมูลประวัติการให้บริการข้อมูลที่ Migrate</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ:<br>
-                            1. User ที่ถูก soft delete ไปแล้ว ทางบริษัทนำมาแสดงผลในประวัติคำขอบริการไม่ถูกต้อง แจ้งให้บริษัทไปแก้ไขมา ต้องแสดงผลชื่อผู้ขอได้ แม้ว่าจะถูก soft delete ออกจากระบบไปแล้ว<br>
-                            2. ผู้อนุมัติที่ TW30 รายการไม่มีผู้อนุมัติให้บันทึกเป็น superadmin ไว้ก่อน<br>
-                            3. การเรียกใช้ API ทางบริษัทยังเรียกดูข้อมูลไม่ถูกต้อง โดย access_log ให้ไปดูที่ activity - access_log และ access_log เก่า มี eid ที่ link อยู่มัน mapping กับ dataservice ได้<br>
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">รายการ pipeline 8 ตัว ที่คุณดลไม่ได้ไฮไลด์ สีเขียว</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: ดำเนินการเสร็จไป 3 รายการ เหลือ 5 รายการ ระหว่างนี้ตัวไหนเสร็จ ให้นัดนำเสนอ Online ทันที เมื่อเสร็จครบทุกตัว มานำเสนอภาพรวมทั้งหมด Onsite
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">email สรุปรายการเหตุการณ์ที่เกิดขึ้นในระบบคลังข้อมูลน้ำ</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: รายงานเหตุการณ์ ปิดการแจ้งเตือนไว้อยู่ สั่งให้เปิดแล้ว
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">หน้าเว็บส่วนของรูปยังแสดง thumb ไม่ครบ</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: กำลังแก้ไขและทยอยแสดงผล
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">รายการ issue เก่าที่อยู่แก้ไข ยังไม่มีอัพเดต</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: นัดวันนำเสนอ issue ทั้งหมด และ Loadtest จะขอนัดปลายสัปดาห์ หรือ สัปดาห์หน้า
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">ขอนัด daily อัพเดตการแก้ไข issue ทุกวัน</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: นัดทุกวัน 11:00 - 12:00 น. ผ่าน online
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">อัพเดตการแก้ไข api ส่วนแสดงผล mobile app</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ: กำลังดำเนินการแก้ไข API ที่เกี่ยวข้องตามรายการที่แจ้ง
-                        </div>
-                    </details>
-                    <details class="border-l-4 border-[#0D6EFD] bg-card-2 rounded-r-lg">
-                        <summary class="flex justify-between items-center text-primary-dark">
-                            <span class="font-bold">แผน migrate file</span>
-                            <span class="summary-arrow"></span>
-                        </summary>
-                        <div class="text-gray-800 mt-2 content">
-                            คำตอบ:<br>
-                            1. ปี 2025 กำลังทำอยู่ ยังไม่สามารถประเมินวันที่แล้วเสร็จได้<br>
-                            2. แผนเดิมข้อมูลจะ Migrate ถึงปี 2024 วันที่ 11 อาจจะล่าช้า 1-2 วัน<br>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>
+                                    <span class="font-semibold">script ทดสอบความเท่ากันของข้อมูลที่หน้าเว็บ:</span> ทำตัวอย่างหน้า ฝน และ อ่างเก็บน้ำ นำ script และ report มานำเสนอก่อน
+                                </li>
+                                <li>
+                                    <span class="font-semibold">หน้าเว็บส่วนของรูปยังแสดง Thumb ไม่ครบ:</span> กำลังแก้ไขและทยอยแสดงผล
+                                </li>
+                                <li>
+                                    <span class="font-semibold">รายการ issue เก่าที่อยู่แก้ไข:</span> นัดวันนำเสนอ issue ทั้งหมด และ Loadtest จะขอนัดปลายสัปดาห์ หรือ สัปดาห์หน้า
+                                </li>
+                                <li>
+                                    <span class="font-semibold">ขอนัด daily อัพเดตการแก้ไข issue:</span> นัดทุกวัน 11:00 - 12:00 น.
+                                </li>
+                            </ul>
                         </div>
                     </details>
                 </div>
@@ -397,6 +298,65 @@
                                 family: "'Sarabun', sans-serif"
                             }
                         }
+                    },
+                    tooltip: {
+                         callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const issueRadarCtx = document.getElementById('issueRadarChart').getContext('2d');
+        const issueRadarChart = new Chart(issueRadarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['ระบบและ API', 'Data และ Pipeline', 'หน้าเว็บและอื่นๆ'],
+                datasets: [{
+                    label: 'สถานะการแก้ไขปัญหา',
+                    data: [80, 75, 60],
+                    backgroundColor: 'rgba(13, 110, 253, 0.2)',
+                    borderColor: '#0D6EFD',
+                    pointBackgroundColor: '#0D6EFD',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0D6EFD',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#dee2e6'
+                        },
+                        grid: {
+                            color: '#dee2e6'
+                        },
+                        pointLabels: {
+                            color: '#212529',
+                            font: {
+                                family: "'Sarabun', sans-serif"
+                            }
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
                     },
                     tooltip: {
                          callbacks: {

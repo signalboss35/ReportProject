@@ -1,0 +1,76 @@
+ body {
+     font-family: 'Sarabun', sans-serif;
+     background-color: #F8F9FA;
+ }
+
+ .text-primary-dark {
+     color: #212529;
+ }
+
+ .bg-card {
+     background-color: #FFFFFF;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+ }
+
+ .bg-card-2 {
+     background-color: #F8F9FA;
+ }
+
+ .border-highlight {
+     border-left: 4px solid #0D6EFD;
+ }
+
+ .chart-container {
+     position: relative;
+     width: 100%;
+     max-width: 500px;
+     margin-left: auto;
+     margin-right: auto;
+     height: 300px;
+     max-height: 350px;
+ }
+
+ @media (min-width: 768px) {
+     .chart-container {
+         height: 350px;
+     }
+ }
+
+ .flow-arrow {
+     color: #0D6EFD;
+     font-size: 2rem;
+     text-align: center;
+ }
+
+ details>summary {
+     list-style: none;
+     cursor: pointer;
+     padding: 1rem;
+     border-radius: 0.5rem;
+     transition: background-color 0.3s ease;
+ }
+
+ details>summary::-webkit-details-marker {
+     display: none;
+ }
+
+ details[open]>summary {
+     background-color: #E9ECEF;
+ }
+
+ details[open]>summary::after {
+     content: "▲";
+ }
+
+ details:not([open])>summary::after {
+     content: "▼";
+ }
+
+ .summary-arrow::after {
+     float: right;
+     margin-left: 10px;
+ }
+
+ details[open]>.content {
+     padding: 1rem;
+ }
